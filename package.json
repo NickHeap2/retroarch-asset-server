@@ -1,0 +1,71 @@
+{
+  "name": "retroarch-asset-server",
+  "version": "0.1.0",
+  "description": "RetroArch asset server",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib/**"
+  ],
+  "scripts": {
+    "dev": "nodemon lib/index.js",
+    "lint": "standard \"**/*.js\"",
+    "start": "node lib/index.js",
+    "test": "jest --verbose"
+  },
+  "author": {
+    "name": "Nick Heap",
+    "email": "nickheap@gmail.com",
+    "url": "https://github.com/NickHeap2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickHeap2/retroarch-asset-server.git"
+  },
+  "keywords": [
+    "retroarch",
+    "asset",
+    "server",
+    "mame",
+    "roms"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "nodemon": "^2.0.15",
+    "standard": "^16.0.4"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "jest": "^27.5.1",
+    "jszip": "^3.7.1",
+    "xml2js": "^0.4.23"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "lib/*.js",
+      "!tests/**"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 10,
+        "functions": 10,
+        "lines": 10,
+        "statements": 10
+      }
+    }
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": [
+      "dist/**/*"
+    ]
+  }
+}
