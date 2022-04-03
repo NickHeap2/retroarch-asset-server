@@ -10,12 +10,28 @@ My use case is I have a PC with the MAME 0.78 ROM set that I want to be able to 
 ![Content Downloader](/resources/asset-server.gif "Content Downloader")
 
 ## Run the server
-Checkout the project from github and run the following:
-``` bash
-npm i
-npm start
+Download the server executable for your platform from Releases
+``` text
+Usage: retroarch-asset-server [options]
+
+Options:
+  -V, --version                 output the version number
+  -d, --dat-file <datfile>      MAME dat file to serve
+  -r, --rom-folder <romfolder>  ROM folder for roms defined in dat file
+  -p, --port <port>             Port for server to listen on (default: 5050)
+  -v, --verbose                 Verbose logging (default: false)
+  -h, --help                    display help for command
 ```
-You can change the paths to dat file and ROMs in index.js until I add the command line options.
+
+### Run server on default port 5050 with required options
+``` text
+retroarch-asset-server --dat-file "./MAME 078.dat" --rom-folder ./roms
+```
+
+### Run server on port 6000 with verbose request logging
+``` text
+retroarch-asset-server --dat-file "./MAME 078.dat" --rom-folder ./roms --port 6000 --verbose
+```
 
 ## Configure your RetroArch install
 In your `retroarch.cfg` change the line below:
