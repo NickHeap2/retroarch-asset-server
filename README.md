@@ -4,13 +4,17 @@ This is an implementation of the Online Updater Content Downloader that is built
 You can use it to serve up roms from a full rom set to your devices running RetroArch.  
 My use case is I have a PC with the MAME 0.78 ROM set that I want to be able to easily get select games onto my switchrooted Nintendo Switch without faffing with memory cards.  
 
+[![Node.js CI](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/main.yml)
+[![Standardjs](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/lint.yml)
+[![CodeQL](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/codeql-analysis.yml)
+
 ### Start your server where your ROMs are  
 ![Asset Server](/resources/start.png "Asset Server")  
 ### Download your ROMs to your device  
 ![Content Downloader](/resources/asset-server.gif "Content Downloader")
 
 ## Run the server
-Download the server executable for your platform from Releases
+Download the server executable for your platform from https://github.com/NickHeap2/retroarch-asset-server/releases
 ``` text
 Usage: retroarch-asset-server [options]
 
