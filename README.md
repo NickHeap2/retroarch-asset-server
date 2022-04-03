@@ -1,19 +1,23 @@
 # RetroArch asset server
 
 This is an implementation of the Online Updater Content Downloader that is built into RetroArch.  
-You can use it to serve up roms from a full rom set to your devices running RetroArch.  
-My use case is I have a PC with the MAME 0.78 ROM set that I want to be able to easily get select games onto my switchrooted Nintendo Switch without faffing with memory cards.  
+You can use it to serve up your ROMs, and their required BIOS files, from a full rom set to your devices running RetroArch.  
+My use case is I have a PC with the MAME 0.78 ROM set that I want to be able to easily get select games onto my switchrooted Nintendo Switch without faffing around with memory cards.  
 
 [![Node.js CI](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/main.yml)
 [![Standardjs](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/lint.yml)
 [![CodeQL](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/NickHeap2/retroarch-asset-server/actions/workflows/codeql-analysis.yml)
+
+### Features
+* Browse ROMs by Description, Manufacturer, ROM Name and Year
+* Download your ROM plus any required BIOS to your device
 
 ### Start your server where your ROMs are  
 ![Asset Server](/resources/start.png "Asset Server")  
 ### Download your ROMs to your device  
 ![Content Downloader](/resources/asset-server.gif "Content Downloader")
 
-## Run the server
+## First Run the server
 Download the server executable for your platform from https://github.com/NickHeap2/retroarch-asset-server/releases
 ``` text
 Usage: retroarch-asset-server [options]
@@ -37,7 +41,7 @@ retroarch-asset-server --dat-file "./MAME 078.dat" --rom-folder ./roms
 retroarch-asset-server --dat-file "./MAME 078.dat" --rom-folder ./roms --port 6000 --verbose
 ```
 
-## Configure your RetroArch install
+## Then Configure your RetroArch install
 In your `retroarch.cfg` change the line below:
 ``` ini
 core_updater_buildbot_assets_url = "http://buildbot.libretro.com/assets/"
@@ -72,17 +76,5 @@ As there currently aren't any sub-directories this returns a 404.
 ### `GET /assets/cores/Arcade/1943%20-%20The%20Battle%20of%20Midway%20%28US%29%20%20%20%20%20%20%20%20%5BCapcom%201987%5D--1943.zip`
 This should return the zip file that is selected.  
 In our case we create an in memory zip file with that name, add a directory of Arcade and add the actual `1943.zip` into that directory.  
-This then gets extracted into the downloads directory in RetroArch as Arcade/1943.zip.
-
-## Future plans
-I'm looking to add subdirectories under Arcade like this:
-* By Description
-  * All - single list as per current
-  * Each letter of the alphabet - Games starting with that letter
-* By Date
-  * All - single list sorted by date then description
-  * Each Year - Games for that year
-* By Manufacturer
-  * All - single list sorted by manufacturer then description
-  * Each Year - Games for that Manufacturer
-* Just rom name - list with just the romname
+This then gets extracted into the downloads directory in RetroArch as Arcade/1943.zip.  
+We also now attach any needed bios file that the rom needs.
