@@ -41,7 +41,7 @@
     "jest": "^27.5.1",
     "pkg": "^5.5.1",
     "pkg-fetch": "^3.2.5",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.20",
     "standard": "^16.0.4"
   },
   "dependencies": {
